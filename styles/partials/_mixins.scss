@@ -1,0 +1,107 @@
+@mixin menu {
+    .menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;        
+        margin: 60px 30px;
+        z-index: 2;        
+    }
+    .span-menu{
+        width: 40px;
+        height: 40px;
+        border-radius: $border-r;
+        background-color:$light-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:first-child{
+            img{
+              height: 25px;  
+            }
+        }
+    }    
+    .la-ellipsis-h:before {
+        font-size: 1.3rem;
+        color: #4B898D;
+    }
+}
+
+@mixin profile {
+    .profile{
+        margin-top: 60px;
+    }
+    .person-wrapper{
+        height: 66px;
+        width: 66px;
+    }
+    .person-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-position: center;
+        border-radius: $border-r;
+    }
+    .name{
+        font-size: .9rem;
+        color: $light-color;
+        margin-top: 18px;
+    }
+}
+
+@mixin calendar {
+    .calendar{
+        background-color: $light-color;
+        height: 160px;
+        width: 100%;
+        border-radius: 25px;
+        margin-top: 20px;
+    }
+    .datas{
+        height: 40px;
+        padding: 20px 0;
+    }
+    .data{
+        padding: 25px;
+        span{
+            &:first-child{
+                color: $bolder-text;
+                font-weight: bolder;
+                font-size: 1.3rem;
+            }
+            &:last-child{
+                color: #9EA6A6;
+                font-size: .8rem;
+                margin-top: 6px;
+            }
+        }
+    }
+    .calendar-section{
+        background-color: white;
+        border-radius: 11px;
+        box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.05);
+        margin: 20px 0;
+    }
+    .date{
+        font-size: .8rem;
+        font-weight: bold;
+        color:$bolder-text;
+        padding: 13px 30px;
+        position:relative;
+        &:hover,&.active{
+            background-image: linear-gradient(#FF673D, #FF573D);
+            border-radius: 11px;
+            color: white;
+            &:after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                box-shadow: 0px 24px 34px -25px rgba(0, 0, 0, 0.18);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+        
+    }
+} 

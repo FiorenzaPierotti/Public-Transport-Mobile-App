@@ -1,0 +1,18 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/styleguide';
+
+.first-block{
+    width: 100%;
+    height: 265px;
+    background-color: $first-block-color;
+    border-radius: 0 0 30px 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:-1;
+}
+
+@include menu;
+@include profile;
+@include calendar;
