@@ -63,7 +63,7 @@ let calendar = `
         </div>
     </div>
     <div class="${wrapper} ${calendarSection}">
-        <div class="${date} ${classColumn} active">
+        <div class="${date} ${classColumn}">
             <span>${day}</span>
         </div>
         <div class="${date} ${classColumn}">
