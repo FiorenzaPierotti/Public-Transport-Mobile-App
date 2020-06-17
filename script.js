@@ -1,5 +1,9 @@
 let wrapper = 'wrapper';
 let classColumn = 'column';
+let classTitle = 'title';
+let greyText = 'grey-text';
+let classIcon = 'icon';
+let spanMenu = 'span-menu';
 
 let classFirstBlock = 'first-block';
 
@@ -7,12 +11,11 @@ let firstBlock = `<div class="${classFirstBlock}"></div>`
 document.querySelector('body').innerHTML = firstBlock;
 
 let classMenu = 'menu';
-let spanMenu = 'span-menu';
 let dotsIcon = 'las la-ellipsis-h';
 
 let menu = `
 <div class="${classMenu} ${wrapper}">
-    <span class="${spanMenu}"><img src="imgs/bell.png"></span>
+    <span class="${spanMenu}"><img class="${classIcon}" src="imgs/bell.png"></span>
     <span class="${spanMenu}"><i class="${dotsIcon}"></i></span>
 </div>`
 document.querySelector('body').innerHTML += menu;
@@ -50,16 +53,16 @@ let calendar = `
 <div class="${classCalendar} ${classColumn}">
     <div class="${datas} ${wrapper}">
         <div class="${data} ${classColumn}">
-            <span>${dataOne}</span>
-            <span>${rides}</span>
+            <span class="${classTitle}">${dataOne}</span>
+            <span class="${greyText}">${rides}</span>
         </div>
         <div class="${data} ${classColumn}">
-            <span>${dataTwo}</span>
-            <span>${spent}</span>
+            <span class="${classTitle}">${dataTwo}</span>
+            <span class="${greyText}">${spent}</span>
         </div>
         <div class="${data} ${classColumn}">
-            <span>${dataThree}</span>
-            <span>${tikets}</span>
+            <span class="${classTitle}">${dataThree}</span>
+            <span class="${greyText}">${tikets}</span>
         </div>
     </div>
     <div class="${wrapper} ${calendarSection}">
@@ -75,3 +78,36 @@ let calendar = `
     </div>
 </div>`
 document.querySelector('body').innerHTML += calendar;
+
+let title = 'Saved routes';
+let classSection = 'section';
+let classVeicols = 'veicols';
+let veicolWrapper = 'veicol-wrapper';
+let veicolCard = 'veicol-card';
+let veicols = [
+    'taxi',
+    'trolley',
+    'tram',
+    'car',
+    'subway',
+    'bicycle',
+    'bus'
+]
+
+let section = `
+<section class="${classSection}">
+    <p class="${classTitle}">${title}</p>
+    <div class="${wrapper} ${classVeicols}">
+    </div>
+</section>`
+document.querySelector('body').innerHTML += section;
+
+veicols.forEach(veicol => v(veicol));
+function v(veicol){
+    let sectionVeicols = `
+    <div class="${classColumn} ${veicolCard}">
+        <div class="${veicolWrapper} ${spanMenu}"><img class="${classIcon}" src="imgs/`+veicol+`.png"></div>
+        <span class="${greyText}">`+veicol+`</span>
+    </div>`
+    document.querySelector('.veicols').innerHTML += sectionVeicols;
+}

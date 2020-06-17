@@ -24,6 +24,33 @@ body {
   flex-direction: row;
 }
 
+.title {
+  color: #3E6766;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.grey-text {
+  color: #3E6766;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  text-transform: capitalize;
+}
+
+.icon {
+  height: 25px;
+}
+
+.span-menu {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #FAFDFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .first-block {
   width: 100%;
   height: 265px;
@@ -42,19 +69,6 @@ body {
   right: 0;
   margin: 60px 30px;
   z-index: 2;
-}
-
-.span-menu {
-  width: 40px;
-  height: 40px;
-  border-radius: 14px;
-  background-color: #FAFDFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.span-menu:first-child img {
-  height: 25px;
 }
 
 .la-ellipsis-h:before {
@@ -76,7 +90,7 @@ body {
   height: 100%;
   object-fit: cover;
   background-position: center;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .name {
@@ -101,16 +115,6 @@ body {
 .data {
   padding: 25px;
 }
-.data span:first-child {
-  color: #545c59;
-  font-weight: bolder;
-  font-size: 1.3rem;
-}
-.data span:last-child {
-  color: #9EA6A6;
-  font-size: 0.8rem;
-  margin-top: 6px;
-}
 
 .calendar-section {
   background-color: white;
@@ -120,25 +124,51 @@ body {
 }
 
 .date {
+  height: 42px;
   font-size: 0.8rem;
   font-weight: bold;
-  color: #545c59;
-  padding: 13px 30px;
+  color: #3E6766;
+  min-width: 106px;
   position: relative;
 }
 .date:hover, .date.active {
   background-image: linear-gradient(#FF673D, #FF573D);
   border-radius: 11px;
   color: white;
+  box-shadow: 0px 11px 19px -8px rgba(254, 32, 15, 0.73);
 }
-.date:hover:after, .date.active:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 24px 34px -25px rgba(0, 0, 0, 0.18);
-  position: absolute;
-  bottom: 0;
-  left: 0;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.veicols {
+  width: fit-content;
+}
+
+.veicol-card {
+  background-color: #FAFDFF;
+  width: 66px;
+  height: 110px;
+  border-radius: 12px;
+}
+.veicol-card:not(:last-child) {
+  margin-right: 9px;
+}
+.veicol-card:hover, .veicol-card.active {
+  background-image: linear-gradient(#FF673D, #FF573D);
+  box-shadow: 0px 11px 19px -8px rgba(254, 32, 15, 0.73);
+}
+.veicol-card:hover .grey-text, .veicol-card.active .grey-text {
+  color: white;
+}
+
+.veicol-wrapper {
+  border: 1px solid #d8e4f3;
+  margin: -15px 0 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

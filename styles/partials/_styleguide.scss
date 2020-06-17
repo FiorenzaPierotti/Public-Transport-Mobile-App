@@ -20,4 +20,26 @@ body{
     justify-content: space-between;
     flex-direction: row;
 }
-
+.title{
+    color: $bolder-text;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.grey-text{
+    color: $bolder-text;
+    font-size: .8rem;
+    margin-top: 6px;
+    text-transform: capitalize;;
+}
+.icon{
+    height: 25px;
+}
+.span-menu{
+    width: 40px;
+    height: 40px;
+    border-radius: $border-r;
+    background-color:$light-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
