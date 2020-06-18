@@ -143,6 +143,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 15px;
+  margin-bottom: 180px;
 }
 
 .veicols {
@@ -265,6 +266,67 @@ body {
   border-radius: 7px;
   display: flex;
   align-items: center;
+}
+
+.low-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 16px;
+  background-color: white;
+  height: 90px;
+  width: 373px;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.low-menu-div {
+  padding: 35px;
+}
+.low-menu-div .las {
+  font-size: 2rem;
+  color: #3E6766;
+}
+.low-menu-div:hover, .low-menu-div.active {
+  padding: 8px;
+}
+.low-menu-div:hover .las, .low-menu-div.active .las {
+  display: none;
+}
+.low-menu-div:hover .low-menu-hidden, .low-menu-div.active .low-menu-hidden {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(#FF673D, #FF573D);
+  box-shadow: 0px 11px 19px -8px rgba(254, 32, 15, 0.73);
+  border-radius: 12px;
+  height: 50px;
+  width: 120px;
+}
+
+.low-menu-hidden {
+  display: none;
+}
+.low-menu-hidden div {
+  background-color: white;
+  display: flex;
+  height: 35px;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 3px;
+}
+.low-menu-hidden img {
+  height: 20px;
+}
+.low-menu-hidden span {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */

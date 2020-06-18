@@ -71,6 +71,7 @@
         flex-direction: column;
         justify-content: flex-start;
         margin-top:15px;
+        margin-bottom: 180px;
     }
     .veicols{
         width: fit-content;
@@ -188,6 +189,68 @@
                     align-items: center;
                 }
             }
+        }
+    }
+}
+
+@mixin lowMenu {
+    .low-menu{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin: 16px;
+        background-color: white;
+        height: 90px;
+        width: 373px;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .low-menu-div{        
+        padding: 35px;
+        .las{
+            font-size: 2rem;
+            color: $bolder-text;
+        }
+        &:hover,&.active{
+            .las{
+                display: none;
+            }
+            .low-menu-hidden{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-image: $orange-gradient;
+                box-shadow: $bottom-box-shadow;
+                border-radius: $border-r;
+                height: 50px;
+                width: 120px;
+            }            
+            padding: 8px;
+        }
+    }
+    .low-menu-hidden{
+        display: none;
+        div{
+            background-color: white;
+            display: flex;
+            height: 35px;
+            width: 35px;
+            align-items: center;
+            justify-content: center;
+            border-radius: $border-r;
+            margin: 3px;
+        }
+        img{
+            height: 20px;
+        }
+        span{
+            color: white;
+            font-size: .8rem;
+            font-weight: bold;
+            padding: 16px;
         }
     }
 }

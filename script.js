@@ -147,7 +147,15 @@ function v(veicol){
     }
 }
 
+
+let classLowMenu = 'low-menu';
+let lowMenuDiv = 'low-menu-div';
+let lowMenuHidden = 'low-menu-hidden';
+
 let lowMenu = `
-<div class="${classLowMenu}">
+<div class="${classLowMenu} ${wrapper}">
+    <div class="${lowMenuDiv} active"><i class="las la-user"></i><div class="${lowMenuHidden}"><div><img src="imgs/profile.png"></div><span>Profile</span></div></div>
+    <div class="${lowMenuDiv}"><i class="las la-wallet"></i><div class="${lowMenuHidden}"><div><img src="imgs/wallet.png"></div><span>Wallet</span></div></div>
+    <div class="${lowMenuDiv}"><i class="las la-map"></i><div class="${lowMenuHidden}"><div><img src="imgs/map.png"></div><span>Map</span></div></div>
 </div>`
 document.querySelector('body').innerHTML += lowMenu;
