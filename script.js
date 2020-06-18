@@ -4,6 +4,7 @@ let classTitle = 'title';
 let greyText = 'grey-text';
 let classIcon = 'icon';
 let spanMenu = 'span-menu';
+let image = 'image';
 
 let classFirstBlock = 'first-block';
 
@@ -22,13 +23,12 @@ document.querySelector('body').innerHTML += menu;
 
 let classProfile = 'profile';
 let personWrapper = 'person-wrapper';
-let personImage = 'person-image';
 let className = 'name';
 let name = 'Lindsey Ainsley';
 
 let profile = `
 <div class="${classProfile} ${classColumn}">
-    <div class="${personWrapper}"><img class="${personImage}" src="imgs/profile.jpg"></div>
+    <div class="${personWrapper}"><img class="${image}" src="imgs/profile.jpg"></div>
     <span class="${className}">${name}</span>
 </div>`
 document.querySelector('body').innerHTML += profile;
@@ -66,7 +66,7 @@ let calendar = `
         </div>
     </div>
     <div class="${wrapper} ${calendarSection}">
-        <div class="${date} ${classColumn}">
+        <div class="${date} ${classColumn} active">
             <span>${day}</span>
         </div>
         <div class="${date} ${classColumn}">
@@ -84,6 +84,16 @@ let classSection = 'section';
 let classVeicols = 'veicols';
 let veicolWrapper = 'veicol-wrapper';
 let veicolCard = 'veicol-card';
+let cardMap = 'card-map';
+let mapWrapper = 'map-wrapper';
+let map = 'map';
+let directions = 'directions';
+let whatToDo = 'Going to Paul by bike';
+let departure = 'Winchester Rd. 29';
+let arrival = 'Athlone St 37';
+let howToGo = 'how';
+let min = '26 min';
+let km = '3.5 km';
 let veicols = [
     'taxi',
     'trolley',
@@ -99,6 +109,28 @@ let section = `
     <p class="${classTitle}">${title}</p>
     <div class="${wrapper} ${classVeicols}">
     </div>
+    <div class="${mapWrapper} ${wrapper}">
+        <div class="${cardMap} active">
+            <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
+            <div class="${directions}">
+                <p>${whatToDo}</p>
+                <span>${departure}</span>
+                <b></b><b></b><b></b>
+                <span>${arrival}</span>
+                <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+            </div>
+        </div>
+        <div class="${cardMap}">
+            <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
+            <div class="${directions}">
+                <p>${whatToDo}</p>
+                <span>${departure}</span>
+                <b></b><b></b><b></b>
+                <span>${arrival}</span>
+                <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+            </div>
+        </div>
+    </div>
 </section>`
 document.querySelector('body').innerHTML += section;
 
@@ -110,4 +142,12 @@ function v(veicol){
         <span class="${greyText}">`+veicol+`</span>
     </div>`
     document.querySelector('.veicols').innerHTML += sectionVeicols;
+    if(veicol){
+        document.querySelector('.veicol-card').classList.add('active');
+    }
 }
+
+let lowMenu = `
+<div class="${classLowMenu}">
+</div>`
+document.querySelector('body').innerHTML += lowMenu;
