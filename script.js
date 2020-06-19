@@ -95,39 +95,40 @@ let howToGo = 'how';
 let min = '26 min';
 let km = '3.5 km';
 let veicols = [
-    'taxi',
-    'trolley',
-    'tram',
-    'car',
-    'subway',
-    'bicycle',
-    'bus'
-]
+    {id: 1, label: 'taxi', active: true},
+    {id: 2, label: 'trolley', active: false},
+    {id: 3, label: 'tram', active: false},
+    {id: 4, label: 'car', active: false},
+    {id: 5, label: 'subway', active: false},
+    {id: 6, label: 'bicycle', active: false},
+    {id: 7, label: 'bus', active: false}    
+]  
 
 let section = `
 <section class="${classSection}">
     <p class="${classTitle}">${title}</p>
-    <div class="${wrapper} ${classVeicols}">
-    </div>
-    <div class="${mapWrapper} ${wrapper}">
-        <div class="${cardMap} active">
-            <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
-            <div class="${directions}">
-                <p>${whatToDo}</p>
-                <span>${departure}</span>
-                <b></b><b></b><b></b>
-                <span>${arrival}</span>
-                <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+    <div class="positioning"><div class="${wrapper} ${classVeicols}"></div></div>
+    <div class="positioning">
+        <div class="${mapWrapper} ${wrapper}">
+            <div class="${cardMap} active">
+                <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
+                <div class="${directions}">
+                    <p>${whatToDo}</p>
+                    <span>${departure}</span>
+                    <b></b><b></b><b></b>
+                    <span>${arrival}</span>
+                    <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+                </div>
             </div>
-        </div>
-        <div class="${cardMap}">
-            <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
-            <div class="${directions}">
-                <p>${whatToDo}</p>
-                <span>${departure}</span>
-                <b></b><b></b><b></b>
-                <span>${arrival}</span>
-                <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+            <div class="${cardMap}">
+                <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
+                <div class="${directions}">
+                    <p>${whatToDo}</p>
+                    <span>${departure}</span>
+                    <b></b><b></b><b></b>
+                    <span>${arrival}</span>
+                    <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+                </div>
             </div>
         </div>
     </div>
@@ -137,16 +138,29 @@ document.querySelector('body').innerHTML += section;
 veicols.forEach(veicol => v(veicol));
 function v(veicol){
     let sectionVeicols = `
-    <div class="${classColumn} ${veicolCard}">
-        <div class="${veicolWrapper} ${spanMenu}"><img class="${classIcon}" src="imgs/`+veicol+`.png"></div>
-        <span class="${greyText}">`+veicol+`</span>
+    <div id="veicol-${veicol.id}" class="${classColumn} ${veicolCard}" onclick="veicolsClick(${veicol.id})">
+        <div class="${veicolWrapper} ${spanMenu}"><img class="${classIcon}" src="imgs/`+veicol.label+`.png"></div>
+        <span class="${greyText}">`+veicol.label+`</span>
     </div>`
     document.querySelector('.veicols').innerHTML += sectionVeicols;
-    if(veicol){
+    if(veicol.active){
         document.querySelector('.veicol-card').classList.add('active');
-    }
-}
-
+    } 
+} 
+function veicolsClick(veicolId){
+    veicols.map((item) => {
+      item.active = veicolId === item.id      
+      console.log(item); 
+      console.log('veicols', veicols);
+      debugger 
+      if(item.active){
+          document.querySelector('#veicol-'+item.id).classList.add('active');
+      } else {
+        document.querySelector('#veicol-'+item.id).classList.remove('active');
+      }
+    })
+    
+};   
 
 let classLowMenu = 'low-menu';
 let lowMenuDiv = 'low-menu-div';
