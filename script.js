@@ -158,8 +158,7 @@ function veicolsClick(veicolId){
       } else {
         document.querySelector('#veicol-'+item.id).classList.remove('active');
       }
-    })
-    
+    })    
 };   
 
 let classLowMenu = 'low-menu';
