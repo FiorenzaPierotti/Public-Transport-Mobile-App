@@ -56,6 +56,7 @@
         font-weight: bold;
         color:$bolder-text;
         min-width: 106px;
+        text-transform: capitalize;
         position:relative;
         &:hover,&.active{
             background-image: $orange-gradient;

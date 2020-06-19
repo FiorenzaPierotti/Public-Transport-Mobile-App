@@ -133,6 +133,7 @@ body {
   font-weight: bold;
   color: #3E6766;
   min-width: 106px;
+  text-transform: capitalize;
   position: relative;
 }
 .date:hover, .date.active {

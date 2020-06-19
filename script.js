@@ -44,10 +44,11 @@ let dataThree = '1';
 let tikets = 'Tikets';
 let date = 'date';
 let calendarSection = 'calendar-section';
-let day = 'Day';
-let week = 'Week';
-let month = 'Month';
-
+let calendarItems = [
+    {id: 1, label: 'day', active: true},
+    {id: 2, label: 'week', active: false},
+    {id: 3, label: 'month', active: false}   
+]
 
 let calendar = `
 <div class="${classCalendar} ${classColumn}">
@@ -66,18 +67,32 @@ let calendar = `
         </div>
     </div>
     <div class="${wrapper} ${calendarSection}">
-        <div class="${date} ${classColumn} active">
-            <span>${day}</span>
-        </div>
-        <div class="${date} ${classColumn}">
-            <span>${week}</span>
-        </div>
-        <div class="${date} ${classColumn}">
-            <span>${month}</span>
-        </div>
+
     </div>
 </div>`
 document.querySelector('body').innerHTML += calendar;
+
+calendarItems.forEach(item => d(item));
+function d(item){
+    let dateItem = `
+    <div id="date-${item.id}" class="${date} ${classColumn}" onclick="calendarClick(${item.id})">
+        <span class="d">`+item.label+`</span>
+    </div>`    
+    document.querySelector('.calendar-section').innerHTML += dateItem;
+    if(item.active){
+        document.querySelector('.date').classList.add('active');
+    } 
+} 
+function calendarClick(dateId){
+    calendarItems.map((item) => {
+      item.active = dateId === item.id  
+      if(item.active){
+          document.querySelector('#date-'+item.id).classList.add('active');
+      } else {
+        document.querySelector('#date-'+item.id).classList.remove('active');
+      }
+    })    
+};
 
 let title = 'Saved routes';
 let classSection = 'section';
@@ -149,10 +164,7 @@ function v(veicol){
 } 
 function veicolsClick(veicolId){
     veicols.map((item) => {
-      item.active = veicolId === item.id      
-      console.log(item); 
-      console.log('veicols', veicols);
-      debugger 
+      item.active = veicolId === item.id  
       if(item.active){
           document.querySelector('#veicol-'+item.id).classList.add('active');
       } else {
