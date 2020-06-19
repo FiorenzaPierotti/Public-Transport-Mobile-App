@@ -119,32 +119,18 @@ let veicols = [
     {id: 7, label: 'bus', active: false}    
 ]  
 
+let mapItems = [
+    {id: 1, label: 'first-direction', active: true},
+    {id: 2, label: 'second-direction', active: false}   
+] 
+
 let section = `
 <section class="${classSection}">
     <p class="${classTitle}">${title}</p>
-    <div class="positioning"><div class="${wrapper} ${classVeicols}"></div></div>
+    <div class="positioning"><div class="${wrapper} ${classVeicols}"></div></div></div>
     <div class="positioning">
         <div class="${mapWrapper} ${wrapper}">
-            <div class="${cardMap} active">
-                <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
-                <div class="${directions}">
-                    <p>${whatToDo}</p>
-                    <span>${departure}</span>
-                    <b></b><b></b><b></b>
-                    <span>${arrival}</span>
-                    <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
-                </div>
-            </div>
-            <div class="${cardMap}">
-                <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
-                <div class="${directions}">
-                    <p>${whatToDo}</p>
-                    <span>${departure}</span>
-                    <b></b><b></b><b></b>
-                    <span>${arrival}</span>
-                    <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>`
@@ -173,14 +159,68 @@ function veicolsClick(veicolId){
     })    
 };   
 
+mapItems.forEach(mapI => m(mapI));
+function m(mapI){
+    let sectionMaps = `
+    <div id="map-${mapI.id}" class="${cardMap}" onclick="mapsClick(${mapI.id})">
+        <div class="${map}"><img class="${image}" src="imgs/map.jpg"></div>
+        <div class="${directions}">
+            <p>${whatToDo}</p>
+            <span>${departure}</span>
+            <b></b><b></b><b></b>
+            <span>${arrival}</span>
+            <div class="${howToGo}"><span><i class="las la-bicycle"></i>${min}</span><span>${km}</span></div>
+        </div>
+    </div>`
+    document.querySelector('.map-wrapper').innerHTML += sectionMaps;
+    if(mapI.active){
+        document.querySelector('.card-map').classList.add('active');
+    } 
+} 
+function mapsClick(mapId){
+    mapItems.map((item) => {
+      item.active = mapId === item.id  
+      if(item.active){
+          document.querySelector('#map-'+item.id).classList.add('active');
+      } else {
+        document.querySelector('#map-'+item.id).classList.remove('active');
+      }
+    })    
+};  
+
 let classLowMenu = 'low-menu';
 let lowMenuDiv = 'low-menu-div';
 let lowMenuHidden = 'low-menu-hidden';
+let lowMenuItems = [
+    {id: 1, label: 'profile', icon: 'user', active: true},
+    {id: 2, label: 'wallet', icon: 'wallet', active: false},
+    {id: 3, label: 'map', icon: 'map', active: false}   
+]
 
 let lowMenu = `
 <div class="${classLowMenu} ${wrapper}">
-    <div class="${lowMenuDiv} active"><i class="las la-user"></i><div class="${lowMenuHidden}"><div><img src="imgs/profile.png"></div><span>Profile</span></div></div>
-    <div class="${lowMenuDiv}"><i class="las la-wallet"></i><div class="${lowMenuHidden}"><div><img src="imgs/wallet.png"></div><span>Wallet</span></div></div>
-    <div class="${lowMenuDiv}"><i class="las la-map"></i><div class="${lowMenuHidden}"><div><img src="imgs/map.png"></div><span>Map</span></div></div>
+
 </div>`
 document.querySelector('body').innerHTML += lowMenu;
+
+lowMenuItems.forEach(item => p(item));
+function p(item){
+    let sectionLowMenu = `
+    <div id="profile-${item.id}" class="${lowMenuDiv}" onclick="lowMenuClick(${item.id})"><i class="las la-${item.icon}"></i><div class="${lowMenuHidden}"><div><img src="imgs/${item.label}.png"></div><span>${item.label}</span></div></div>
+    `
+    document.querySelector('.low-menu').innerHTML += sectionLowMenu;
+    if(item.active){
+        document.querySelector('.low-menu-div').classList.add('active');
+    } 
+} 
+function lowMenuClick(profileId){
+    lowMenuItems.map((i) => {
+      i.active = profileId === i.id  
+      if(i.active){
+          document.querySelector('#profile-'+i.id).classList.add('active');
+      } else {
+        document.querySelector('#profile-'+i.id).classList.remove('active');
+      }
+    })    
+};
+

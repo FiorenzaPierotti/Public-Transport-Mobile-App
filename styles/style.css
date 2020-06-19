@@ -60,6 +60,11 @@ body {
 
 .positioning {
   position: relative;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  width: 100vw;
+  margin-left: -30px;
 }
 
 .first-block {
@@ -148,14 +153,11 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 15px;
-  margin-bottom: 180px;
+  margin-bottom: 140px;
 }
 
 .veicols {
-  width: 109%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding-bottom: 20px;
+  padding: 0 30px;
 }
 
 .veicol-card {
@@ -164,9 +166,18 @@ body {
   width: 66px;
   height: 110px;
   border-radius: 12px;
+  position: relative;
 }
 .veicol-card:not(:last-child) {
   margin-right: 9px;
+}
+.veicol-card:last-child:after {
+  content: "";
+  height: 100%;
+  width: 30px;
+  position: absolute;
+  right: -30px;
+  top: 0;
 }
 .veicol-card:hover, .veicol-card.active {
   background-image: linear-gradient(#FF673D, #FF573D);
@@ -183,11 +194,9 @@ body {
 
 .map-wrapper {
   height: 100%;
-  width: 109%;
   margin-top: 8px;
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  padding: 0 30px;
 }
 
 .card-map {
@@ -199,9 +208,18 @@ body {
   flex: 0 0 auto;
   align-items: center;
   padding: 16px;
+  position: relative;
 }
 .card-map:not(:last-child) {
   margin-right: 15px;
+}
+.card-map:last-child:after {
+  content: "";
+  height: 100%;
+  width: 30px;
+  position: absolute;
+  right: -30px;
+  top: 0;
 }
 .card-map:hover, .card-map.active {
   background-color: #a2cecd;
@@ -291,7 +309,7 @@ body {
   margin: 16px;
   background-color: white;
   height: 90px;
-  width: 373px;
+  width: calc(100% - 32px);
   border-radius: 30px;
   align-items: center;
   justify-content: center;

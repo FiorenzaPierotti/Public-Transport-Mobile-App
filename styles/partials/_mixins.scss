@@ -73,13 +73,10 @@
         flex-direction: column;
         justify-content: flex-start;
         margin-top:15px;
-        margin-bottom: 180px;
+        margin-bottom: 140px;
     }
     .veicols{
-        width: 109%;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 20px;
+        padding: 0 30px;
     }
     .veicol-card{
         background-color: $light-color;
@@ -87,8 +84,17 @@
         width: 66px;
         height: 110px;
         border-radius: $border-r;
+        position: relative;
         &:not(:last-child){
             margin-right: 9px;
+        }
+        &:last-child:after{
+            content: "";
+            height: 100%;
+            width: 30px;
+            position: absolute;
+            right: -30px;
+            top: 0;
         }
         &:hover,&.active{
             background-image: $orange-gradient;
@@ -104,11 +110,9 @@
     }
     .map-wrapper{
         height: 100%;
-        width: 109%;
         margin-top: 8px;
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        padding: 0 30px;
     }
     .card-map{
         width: 268px;
@@ -119,8 +123,17 @@
         flex: 0 0 auto;
         align-items: center;
         padding: 16px;
+        position: relative;
         &:not(:last-child){
             margin-right: 15px;
+        }
+        &:last-child:after{
+            content: "";
+            height: 100%;
+            width: 30px;
+            position: absolute;
+            right: -30px;
+            top: 0;
         }
         &:hover,&.active{
             .directions{
@@ -214,7 +227,7 @@
         margin: 16px;
         background-color: white;
         height: 90px;
-        width: 373px;
+        width: calc(100% - 32px);
         border-radius: 30px;
         align-items: center;
         justify-content: center;
